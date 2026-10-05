@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1lml-FWcAnUJamvrKVJXlq-oG9PZrL84d
 """
 
-!pip install -q kagglehub[pandas-datasets]
+
 
 import kagglehub
 
@@ -34,7 +34,7 @@ df = pd.read_csv(file_path)
 print("Dataset loaded successfully!")
 print("Shape:", df.shape)
 
-display(df.head())
+print(df.head())
 
 print("Columns:")
 print(df.columns.tolist())
@@ -214,8 +214,7 @@ df['Cluster'] = clusters
 features = numerical_cols
 
 cluster_analysis = df.groupby("Cluster")[features].mean()
-
-display(cluster_analysis)
+print(cluster_analysis)
 
 plt.figure(figsize=(7, 5))
 
@@ -250,7 +249,7 @@ cluster_names = {
 
 df["Climate_Pattern"] = df["Cluster"].map(cluster_names)
 
-display(
+print(
     df[["Cluster", "Climate_Pattern"]].head()
 )
 
@@ -714,7 +713,7 @@ cluster_analysis = (
 )
 
 print("\nAverage Climate Characteristics:")
-display(
+print(
     cluster_analysis.round(2)
 )
 
@@ -832,6 +831,6 @@ print("\nCluster Distribution:")
 print(cluster_counts)
 
 print("\nCluster Characteristics:")
-display(
+print(
     cluster_analysis.round(2)
 )
